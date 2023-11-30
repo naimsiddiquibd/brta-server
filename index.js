@@ -134,8 +134,8 @@ app.get('/api/subscribers', async (req, res) => {
 
 
 // GET endpoint to fetch license data based on email
-app.get('/api/licenses/:email', async (req, res) => {
-  const email = req.params.email;
+app.get('/api/licenses/email/:userEmail', async (req, res) => {
+  const email = req.params.userEmail; // Use a different parameter name
 
   try {
     const licenses = await License.find({ email: email }).sort({ createdAt: -1 });
